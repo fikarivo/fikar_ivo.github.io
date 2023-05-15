@@ -8,28 +8,26 @@ body {
 
 /* Header Section */
 header {
-  height: 300px;
+  min-height: 300px;
   background-color: #001F3F;
-  display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px; /* Add margin-bottom to create space between header and navigation */
 }
 
 .content {
   background-color: #F2F2F2;
-  height: 200px;
-  width: 900px;
+  min-height: 200px;
+  width: 800px;
   padding: 30px;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: relative;
   bottom: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 50%);
 }
 
 .text-container {
@@ -73,12 +71,13 @@ header {
 
 /* Portrait */
 .portrait {
-  width: 200px;
-  height: 200px;
   background-image: url("portrait.jpg");
   background-size: cover;
   background-position: center;
   border-radius: 50%;
+  width: 30%;
+  max-width: 200px;
+  height: 200px;
 }
 
 /* Navigation */
@@ -86,7 +85,7 @@ header {
   background-color: #001F3F;
   padding: 10px 0;
   text-align: center;
-  margin-top: 100px; /* Add margin-top to create space between navigation and header */
+  margin-top: 200px; /* Add margin-top to create space between navigation and header */
 }
 
 .navigation ul {
@@ -221,6 +220,7 @@ footer {
 .footer p {
   margin-right: 30px;
   margin-left: 30px;
+  padding: 0 10px;
 }
 
 /* About page */
@@ -280,8 +280,9 @@ footer {
 
 .project {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 30px;
+  max-width: 3000px;
 }
 
 .project-content {
@@ -290,7 +291,9 @@ footer {
 }
 
 .project img {
-  max-width: 35%;
+  max-width: 600px;
+  height: auto;
+  align-items: center;
 }
 
 .project h3 {

@@ -32,8 +32,8 @@ window.addEventListener('DOMContentLoaded', function() {
   var windowHeight = window.innerHeight || document.documentElement.clientHeight;
   var bodyHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
 
-  // Check if the page is index.html
-  if (window.location.pathname.endsWith('index.html')) {
+  // Check if the page is index.html or index-cs.html
+  if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('index-cs.html')) {
     // Check if scroll position is at the bottom of the page
     if (scrollPosition + windowHeight >= bodyHeight) {
       footer.style.display = 'block'; // Show the footer
@@ -55,7 +55,37 @@ window.addEventListener('DOMContentLoaded', function() {
     footer.style.display = 'block'; // Show the footer for subpages
   }
 });
+// Language switch
+  document.addEventListener("DOMContentLoaded", function() {
+    var languageSwitch = document.getElementById("language-switch");
+    var englishLink = document.getElementById("english-link");
+    var czechLink = document.getElementById("czech-link");
 
+    // Set initial language based on the saved preference (if any)
+    var languagePreference = localStorage.getItem("languagePreference");
+    if (languagePreference === "czech") {
+      switchToCzech();
+    } else {
+      switchToEnglish();
+    }
 
+    // Event listeners for language links
+    englishLink.addEventListener("click", switchToEnglish);
+    czechLink.addEventListener("click", switchToCzech);
 
+    // Function to switch to English language
+    function switchToEnglish() {
+      document.documentElement.lang = "en";
+      languageSwitch.classList.remove("czech-active");
+      languageSwitch.classList.add("english-active");
+      localStorage.setItem("languagePreference", "english");
+    }
 
+    // Function to switch to Czech language
+    function switchToCzech() {
+      document.documentElement.lang = "cs";
+      languageSwitch.classList.remove("english-active");
+      languageSwitch.classList.add("czech-active");
+      localStorage.setItem("languagePreference", "czech");
+    }
+  });
